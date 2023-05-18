@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-
-
-
+import Test from './components/Test1';
 const App = () => {
   const [ value, setValue ] = useState("");
   const [message, setMessage] = useState(null);
@@ -49,7 +47,7 @@ const App = () => {
 
       )
     }
-  }, [message, currentTitle]);
+  }, [message, currentTitle, value]);
 
 
   const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle);
@@ -57,6 +55,7 @@ const App = () => {
 
   return (
     <div className="app">
+      < Test />
       <section className='side-bar'>
         <button onClick={createNewChat}>New chat</button>
         <ul className='history'>
@@ -79,7 +78,7 @@ const App = () => {
             <div id="submit" onClick={getMessages}>
               ➢
             </div>
-            <p className="info">Best AI chatbot Copilot. Ask anything you want</p>
+            <p className="info"> Ask anything you want</p>
           </div>
         </div>
 

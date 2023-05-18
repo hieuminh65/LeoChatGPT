@@ -16,7 +16,6 @@ app.post('/completions', async (req, res) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            // model: "gpt-4",
             model: "gpt-3.5-turbo",
             max_tokens: 50,
             temperature: 0.9,
