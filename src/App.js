@@ -1,5 +1,39 @@
 import { useEffect, useState } from "react";
 import Test from './components/Test1';
+
+
+// -----------------------------------------------------
+// ! New from another project
+let loadInterval
+
+function loader(element) {
+    element.textContent = ''
+
+    loadInterval = setInterval(() => {
+        // Update the text content of the loading indicator
+        element.textContent += '.';
+
+        // If the loading indicator has reached three dots, reset it
+        if (element.textContent === '....') {
+            element.textContent = '';
+        }
+    }, 300);
+}
+
+function typeText(element, text) {
+    let index = 0
+
+    let interval = setInterval(() => {
+        if (index < text.length) {
+            element.innerHTML += text.charAt(index)
+            index++
+        } else {
+            clearInterval(interval)
+        }
+    }, 20)
+}
+
+// -----------------------------------------------------
 const App = () => {
   const [ value, setValue ] = useState("");
   const [message, setMessage] = useState(null);
