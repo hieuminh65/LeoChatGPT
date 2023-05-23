@@ -124,8 +124,6 @@ const App = () => {
           <ul className="feed" style={{ overflow: 'auto' }}>
             {currentChat.map((chatMessage, index) => 
             <li key={index}>
-              {/* <p className="role">{chatMessage.role === "user" ? chatMessage.role : null}</p>
-              <p>{chatMessage.content}</p> */}
               {chatMessage.role === 'user' ? (
                 <>
                   <p className="user"></p>
