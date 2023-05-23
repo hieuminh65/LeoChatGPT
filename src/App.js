@@ -109,7 +109,6 @@ const App = () => {
 
   return (
     <div className="app">
-      < Test />
       <section className='side-bar' style={{ overflow: 'auto'}}>
         <button onClick={createNewChat}>New chat</button>
         <ul className='history'>
@@ -121,11 +120,24 @@ const App = () => {
       <section className='main'>
         {!currentTitle && <h1 className="main-title">Start New Chat</h1>}
         
-        <div className="feed">
-          <ul style={{ overflow: 'auto' }}>
-            {currentChat.map((chatMessage, index) => <li key={index}>
-              <p className="role">{chatMessage.role === "user" ? chatMessage.role : null}</p>
-              <p>{chatMessage.content}</p>
+        <div class="feed-container">
+          <ul className="feed" style={{ overflow: 'auto' }}>
+            {currentChat.map((chatMessage, index) => 
+            <li key={index}>
+              {/* <p className="role">{chatMessage.role === "user" ? chatMessage.role : null}</p>
+              <p>{chatMessage.content}</p> */}
+              {chatMessage.role === 'user' ? (
+                <>
+                  <p className="user"></p>
+                  <p>{chatMessage.content}</p>
+                </>
+              ) : (
+                <>
+                  <p className="bot"></p>
+                  <p>{chatMessage.content}</p>
+                </>
+                
+              )}
             </li>)}
           </ul>
         </div>
