@@ -28,13 +28,16 @@ button{
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
+  font-size: 20px;
 }
 
-.nav{
+nav{
+  display: flex;
   border-top: solid .5px rgba(255,255,255,0.5);
-  padding: 10px;
-  margin: 10px;
+  margin: .25rem .25rem;
+  justify-content: center;
 }
+
 .main{
   height: 100vh;
   width: 100%;
@@ -45,17 +48,26 @@ button{
   text-align: center;
 }
 
+.main-title{
+  position: fix;
+  margin-top: 1rem;
+  top: 0;
+}
 .history{
   padding: 10px;
-  margin: 10px;
   height: 100%;
 }
 
 .history li {
   list-style-type: none;
-  padding: 15px 0;
+  padding: 10px 0;
   cursor: pointer;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid .5px rgba(255,255,255,0.5);
+  background-color: transparent;
+  border-radius: 5px;
 }
 
 .bottom-section{
@@ -64,6 +76,8 @@ button{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  bottom: 0
 }
 .input-container{
   position: relative;
@@ -99,7 +113,7 @@ input:focus{
 }
 
 .feed{
-  overflow: scrol;
+  overflow: scroll;
   width: 100%;
   padding: 0;
 
@@ -117,8 +131,16 @@ input:focus{
   color: rgba(255,255,255,0.8);
   font-size: 14px;
   text-align: left;
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .feed p.role{
+  height: 50px;
   min-width: 100px;
+  background-image: url(./assets/img/robot.jpg);
+  background-size: cover;
+  background-position: center;
 }

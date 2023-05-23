@@ -47,7 +47,7 @@ const App = () => {
 
       )
     }
-  }, [message, currentTitle, value]);
+  }, [message, currentTitle]);
 
 
   const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle);
@@ -56,7 +56,7 @@ const App = () => {
   return (
     <div className="app">
       < Test />
-      <section className='side-bar'>
+      <section className='side-bar' style={{ overflow: 'auto'}}>
         <button onClick={createNewChat}>New chat</button>
         <ul className='history'>
           {uniqueTitles?.map((uniqueTitles, index) => <li key={index} onClick={() => handleClick(uniqueTitles)}>{uniqueTitles}</li>)}
@@ -65,10 +65,10 @@ const App = () => {
         <nav>Made by Hieu</nav>
       </section>
       <section className='main'>
-        {!currentTitle && <h1>Hieu GPT</h1>}
-        <ul className='feed'>
+        {!currentTitle && <h1 className="main-title">Start New Chat</h1>}
+        <ul className='feed' style={{ overflow: 'auto' }}>
           {currentChat.map((chatMessage, index) => <li key={index}>
-            <p className="role">{chatMessage.role}</p>
+            <p className="role">{chatMessage.role === "user" ? chatMessage.role : null}</p>
             <p>{chatMessage.content}</p>
           </li>)}
         </ul>
