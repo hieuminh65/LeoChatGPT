@@ -50,7 +50,6 @@ const App = () => {
   const handleClick = (uniqueTitles) => {
     setCurrentTitle(uniqueTitles);
     setMessage(null);
-    setValue("");
   }
   const getMessages = async () => {
     const options = {
@@ -95,7 +94,7 @@ const App = () => {
         { title: currentTitle, role: message.role, content: message.content }
       ]));
     }
-  
+    
     return () => {
       if (inputElement) {
         inputElement.removeEventListener('keypress', handleKeyPress);
@@ -121,12 +120,17 @@ const App = () => {
       </section>
       <section className='main'>
         {!currentTitle && <h1 className="main-title">Start New Chat</h1>}
-        <ul className='feed' style={{ overflow: 'auto' }}>
-          {currentChat.map((chatMessage, index) => <li key={index}>
-            <p className="role">{chatMessage.role === "user" ? chatMessage.role : null}</p>
-            <p>{chatMessage.content}</p>
-          </li>)}
-        </ul>
+
+
+        <div className="feed">
+          <ul style={{ overflow: 'auto' }}>
+            {currentChat.map((chatMessage, index) => <li key={index}>
+              <p className="role">{chatMessage.role === "user" ? chatMessage.role : null}</p>
+              <p>{chatMessage.content}</p>
+            </li>)}
+          </ul>
+        </div>
+        
         <div className="bottom-section">
           <div className="input-container">
             <input type="text" placeholder="Type a message" value={value} onChange={(e) => setValue(e.target.value)} ref={inputRef} />

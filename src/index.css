@@ -6,6 +6,7 @@
     box-sizing: border-box;
     color: #fff;
     font-family: DM Sans, sans-serif;
+    outline: red 2px dashed;
 }
 
 .app{
@@ -20,6 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: fixed;
 }
 
 button{
@@ -49,13 +51,15 @@ nav{
 }
 
 .main-title{
-  position: fix;
+  position: fixed;
   margin-top: 1rem;
   top: 0;
 }
 .history{
   padding: 10px;
   height: 100%;
+  width: 100%;
+  
 }
 
 .history li {
@@ -65,13 +69,15 @@ nav{
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid .5px rgba(255,255,255,0.5);
+  border: solid .2rem rgba(255,255,255,0.5);
   background-color: transparent;
   border-radius: 5px;
+  margin-top: .5rem;
+  margin-bottom: .75rem;
 }
 
 .bottom-section{
-  width: 100%;
+  width: calc(100% - 244px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -115,7 +121,10 @@ input:focus{
 .feed{
   overflow: scroll;
   width: 100%;
+  height: calc(100% - width(".input-container") - width(".main-title") - 1rem);
   padding: 0;
+  background-color: #343541;
+
 
 }
 
