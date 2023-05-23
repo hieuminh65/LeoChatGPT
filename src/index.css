@@ -121,7 +121,7 @@ input:focus{
 .feed{
   overflow: scroll;
   width: 100%;
-  height: calc(100% - width(".input-container") - width(".main-title") - 1rem);
+  height: calc(100% - width(".input-container") - width(".main-title"));
   padding: 0;
   background-color: #343541;
 

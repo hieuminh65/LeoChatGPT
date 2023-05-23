@@ -120,8 +120,7 @@ const App = () => {
       </section>
       <section className='main'>
         {!currentTitle && <h1 className="main-title">Start New Chat</h1>}
-
-
+        
         <div className="feed">
           <ul style={{ overflow: 'auto' }}>
             {currentChat.map((chatMessage, index) => <li key={index}>
