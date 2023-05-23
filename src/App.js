@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Test from './components/Test1';
 
 
@@ -39,6 +39,8 @@ const App = () => {
   const [message, setMessage] = useState(null);
   const [ previousChats, setPreviousChats ] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(null);
+  const inputRef = useRef(null);
+
   const createNewChat = () => {
     setCurrentTitle(null);
     setValue("");
@@ -70,18 +72,37 @@ const App = () => {
   }
   
   useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.keyCode === 13) {
+        getMessages();
+      }
+    };
+    
+    const inputElement = inputRef.current;
+    
+    if (inputElement) {
+      inputElement.addEventListener('keypress', handleKeyPress);
+    }
+    
     if (!currentTitle && value && message) {
       setCurrentTitle(value);
     }
+    
     if (currentTitle && value && message) {
-      setPreviousChats(previousChats => (
-        [...previousChats, {title: currentTitle, role: "user", content: value}, 
-        {title: currentTitle, role: message.role, content: message.content}]
-      )
-
-      )
+      setPreviousChats(previousChats => ([
+        ...previousChats,
+        { title: currentTitle, role: "user", content: value },
+        { title: currentTitle, role: message.role, content: message.content }
+      ]));
     }
+  
+    return () => {
+      if (inputElement) {
+        inputElement.removeEventListener('keypress', handleKeyPress);
+      }
+    };
   }, [message, currentTitle]);
+  
 
 
   const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle);
@@ -108,7 +129,7 @@ const App = () => {
         </ul>
         <div className="bottom-section">
           <div className="input-container">
-            <input type="text" placeholder="Type a message" value={value} onChange={(e) => setValue(e.target.value)} />
+            <input type="text" placeholder="Type a message" value={value} onChange={(e) => setValue(e.target.value)} ref={inputRef} />
             <div id="submit" onClick={getMessages}>
               ➢
             </div>
