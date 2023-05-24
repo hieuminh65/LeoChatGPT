@@ -3,7 +3,7 @@ import Test from './components/Test1';
 
 
 // -----------------------------------------------------
-// ! New from another project
+// todo New from another project
 let loadInterval
 
 function loader(element) {
@@ -146,7 +146,7 @@ const App = () => {
             <div id="submit" onClick={getMessages}>
               ➢
             </div>
-            <p className="info"> Ask anything you want</p>
+            <p className="info">Ask anything you want</p>
           </div>
         </div>
 
