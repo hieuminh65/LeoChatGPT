@@ -1,6 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import Test1 from './components/Test1';
-
 
 // -----------------------------------------------------
 // todo New from another project
