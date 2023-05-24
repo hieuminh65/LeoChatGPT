@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import Test from './components/Test1';
+import Test1 from './components/Test1';
 
 
 // -----------------------------------------------------
