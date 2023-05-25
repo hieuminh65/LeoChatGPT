@@ -8,6 +8,12 @@ app.use(cors());
 
 const API_KEY = process.env.API_KEY;
 
+app.get('/', async (req, res) => {
+    res.status(200).send({
+      message: 'Hello from Leo!'
+    })
+})
+
 app.post('/completions', async (req, res) => {
     const options = {
         method: "POST",
@@ -39,3 +45,6 @@ app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
     }       
 );
+
+
+

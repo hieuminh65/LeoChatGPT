@@ -60,7 +60,8 @@ const App = () => {
       })
     }
     try { 
-      const response = await fetch("http://localhost:8000/completions", options);
+      // ! const response = await fetch("http://localhost:8000/completions", options); for test
+      const response = await fetch("https://leochatgpt-pd1e.onrender.com/completions", options);
       const data = await response.json();
       setMessage(data.choices[0].message);
     } catch (error) {
@@ -118,7 +119,7 @@ const App = () => {
       <section className='main'>
         {!currentTitle && <h1 className="main-title">Start New Chat</h1>}
         
-        <div class="feed-container">
+        <div className="feed-container">
           <ul className="feed" style={{ overflow: 'auto' }}>
             {currentChat.map((chatMessage, index) => 
             <li key={index}>
