@@ -2,34 +2,6 @@ import { useEffect, useState, useRef } from "react";
 
 // -----------------------------------------------------
 // todo New from another project
-let loadInterval
-
-function loader(element) {
-    element.textContent = ''
-
-    loadInterval = setInterval(() => {
-        // Update the text content of the loading indicator
-        element.textContent += '.';
-
-        // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '....') {
-            element.textContent = '';
-        }
-    }, 300);
-}
-
-function typeText(element, text) {
-    let index = 0
-
-    let interval = setInterval(() => {
-        if (index < text.length) {
-            element.innerHTML += text.charAt(index)
-            index++
-        } else {
-            clearInterval(interval)
-        }
-    }, 20)
-}
 
 // -----------------------------------------------------
 const App = () => {
@@ -61,7 +33,7 @@ const App = () => {
     }
     try { 
       // ! const response = await fetch("http://localhost:8000/completions", options); for test
-      const response = await fetch("https://leochatgpt-pd1e.onrender.com/completions", options);
+      const response = await fetch("http://localhost:8000/completions", options);
       const data = await response.json();
       setMessage(data.choices[0].message);
     } catch (error) {
